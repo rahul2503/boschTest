@@ -34,10 +34,10 @@ class Question(BaseTimeStamp):
 	option_4 = models.CharField(max_length=500)
 
 	ANSWER_CHOICES = (
-			("1", "Option 1"), 
-			("2", "Option 2"), 
-			("3", "Option 3"), 
-			("4", "Option 4"), 
+			(1, "Option 1"), 
+			(2, "Option 2"), 
+			(3, "Option 3"), 
+			(4, "Option 4"), 
 		)
 	answer = models.PositiveIntegerField(choices=ANSWER_CHOICES, default=4)
 
@@ -46,7 +46,7 @@ class Question(BaseTimeStamp):
 		verbose_name_plural = 'questions'
 
 	def __str__(self):
-		return self.category.name + '-' + self.quiz_number
+		return str(self.id) + '-' + self.category.name + '-' + str(self.quiz_number)
 
 # class CustomUser(AbstractUser):
 # 	username = models.CharField(max_length=30)
